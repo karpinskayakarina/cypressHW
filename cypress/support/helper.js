@@ -15,15 +15,14 @@ export function fillAuthorizationFields(username = "", password = "") {
 //     cy.log('username field not filled')
 // }
 
-Cypress.Commands.add("searchForProduct", (productName) => {
-  cy.get(".prdocutname")
-    .contains(productName)
-    .then(($product) => {
-      if ($product.length === 0) {
-        cy.get(".pagination").find("li").eq(6).click();
-        cy.searchForProduct(productName);
-      } else {
-        cy.wrap($product).first().click();
-      }
-    });
-});
+export function findItem(name) {
+  cy.log("search item");
+  cy.get("body").then((body) => {
+    if (body.find(`[title="${name}"]`).length > 0) {
+      cy.get(`[title="${name}"]`).click();
+    } else {
+      cy.get(".pagination").contains(">").click();
+      findItem(name);
+    }
+  });
+}
