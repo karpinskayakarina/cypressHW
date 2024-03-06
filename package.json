@@ -1,4 +1,6 @@
 {
+  "devDependencies": {
+    "@testomatio/reporter": "^1.2.1"
   "name": "package.json",
   "version": "1.0.0",
   "description": "",
