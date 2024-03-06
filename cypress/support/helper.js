@@ -26,3 +26,35 @@ export function findItem(name) {
     }
   });
 }
+
+export function headlessLogin(loginname, password) {
+  let csrfToken;
+  let csrfInstance;
+
+  cy.request("GET", "/index.php?rt=account/login")
+    .then((response) => {
+      let htmlPesp = document.createElement("html");
+      htmlPesp.innerHTML = response.body;
+      csrfToken = htmlPesp
+        .querySelector('#loginFrm [name="csrftoken"]')
+        .getAttribute("value");
+      csrfInstance = htmlPesp
+        .querySelector('#loginFrm [name="csrfinstance"]')
+        .getAttribute("value");
+    })
+    .then(() => {
+      cy.request({
+        method: "POST",
+        url: "/index.php?rt=account/login",
+        form: true,
+        body: {
+          csrftoken: csrfToken,
+          csrfinstance: csrfInstance,
+          loginname: loginname,
+          password: password,
+        },
+      }).then((response) => {
+        expect(response.status).eq(200);
+      });
+    });
+}
