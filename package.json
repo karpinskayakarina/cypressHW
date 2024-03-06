@@ -1,5 +1,30 @@
 {
   "devDependencies": {
     "@testomatio/reporter": "^1.2.1"
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karpinskayakarina/cypressHW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karpinskayakarina/cypressHW/issues"
+  },
+  "homepage": "https://github.com/karpinskayakarina/cypressHW#readme",
+  "dependencies": {
+    "cypress": "^13.6.4",
+    "faker": "^5.5.3",
+    "faker-js": "^1.0.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "cypress-real-events": "^1.12.0"
   }
 }

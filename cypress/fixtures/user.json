@@ -1,0 +1,18 @@
+{
+  "firstname": "Dwight",
+  "lastname": "LastName11",
+  "email": "eMail25111111111@test.test",
+  "telephone": "2345678987697",
+  "fax": "+1(234)5645445",
+  "company": "Company Test122",
+  "address_1": "Address111",
+  "address_2": "Address222",
+  "city": "Kyiv",
+  "postcode": "012347",
+  "country": "Ukraine",
+  "country_id": "220",
+  "zone_id": "3490",
+  "zone_name": "Kyiv",
+  "loginname": "Louie_Huel63",
+  "password": "Pass123"
+}
