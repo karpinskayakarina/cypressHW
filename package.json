@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@testomatio/reporter": "^1.2.1"
+  }
+}
