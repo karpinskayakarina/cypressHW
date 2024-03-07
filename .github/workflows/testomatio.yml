@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Cypress tests
         run: |
-          npx cypress run:run -- --env grep="${{ github.event.inputs.grep }}" --env eventName="${{ github.event.name }}"
+          npx cypress run -- --env grep="${{ github.event.inputs.grep }}" --env eventName="${{ github.event.name }}"
 
       - name: Upload Testomatio report
         if: ${{ success() }}
