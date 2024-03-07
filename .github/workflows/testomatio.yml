@@ -1,44 +1,17 @@
-# name: Testomatio Tests
-
-# on:
-#   workflow_dispatch:
-#     inputs:
-#       grep:
-#         description: 'tests to grep '
-#         required: false
-#         default: ''
-#       run:
-#         required: false
-#       testomatio:
-#         required: false
-
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Check out repository
-#         uses: actions/checkout@v2
-
-#       - name: Run tests with codeceptjs
-#     run: npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
-#       env:
-#         TESTOMATIO: "${{ github.event.inputs.testomatio }}"
-#         TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
-
 name: Testomatio Tests
 
 on:
   workflow_dispatch:
     inputs:
       grep:
-        description: 'Tests to grep'
+        description: "Tests to grep"
         required: false
-        default: ''
+        default: ""
       run:
-        description: 'Run tests'
+        description: "Run tests"
         required: false
       testomatio:
-        description: 'Testomatio configuration'
+        description: "Testomatio configuration"
         required: false
 
 jobs:
@@ -51,14 +24,14 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install dependencies
         run: npm install
 
       - name: Run Cypress tests
         run: |
-          npm run cypress:run -- --env grep="${{ github.event.inputs.grep }}" --env eventName="${{ github.event.name }}"
+          npx cypress run:run -- --env grep="${{ github.event.inputs.grep }}" --env eventName="${{ github.event.name }}"
 
       - name: Upload Testomatio report
         if: ${{ success() }}
@@ -66,5 +39,3 @@ jobs:
           npx testomat-reporter upload
         env:
           TESTOMATIO: "${{ github.event.inputs.testomatio }}"
-
-
