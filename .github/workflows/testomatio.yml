@@ -20,8 +20,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run tests with codeceptjs
-        run: |
-          npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
-        env:
-          TESTOMATIO: "${{ github.event.inputs.testomatio }}"
-          TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
+    run: npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
+      env:
+        TESTOMATIO: "${{ github.event.inputs.testomatio }}"
+        TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
+
