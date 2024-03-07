@@ -4,7 +4,8 @@
   "description": "",
   "main": "cypress.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,5 @@
     "@testomatio/reporter": "^1.2.1",
     "cypress": "^13.6.6",
     "cypress-real-events": "^1.12.0"
-  },
-  "scripts": {
-  "cypress:run": "cypress run"
-}
+  }
 }
