@@ -12,7 +12,7 @@ describe("Register with valid data", () => {
   user.email = faker.internet.email({
     firstName: "Jeane",
     lastName: "Doe",
-    provider: "some.fakeMail.testikk",
+    provider: "some.fakeMail.testun",
     allowSpecialCharacters: false,
   });
   user.loginname = faker.internet.userName();

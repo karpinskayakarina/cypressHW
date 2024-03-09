@@ -37,3 +37,16 @@ Cypress.Commands.add("login", (username, password) => {
     : cy.log("password field not filled");
   cy.get('[title="Login"]').click();
 });
+
+Cypress.Commands.add("authenticate", (loginname, password) => {
+  cy.request({
+    method: "POST",
+    url: "/index.php?rt=account/login",
+    body: {
+      loginname: loginname,
+      password: password,
+    },
+  }).then((response) => {
+    expect(response.status).to.eq(200);
+  });
+});
