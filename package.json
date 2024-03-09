@@ -4,7 +4,8 @@
   "description": "",
   "main": "cypress.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,13 @@
   },
   "homepage": "https://github.com/karpinskayakarina/cypressHW#readme",
   "dependencies": {
-    "cypress": "^13.6.4",
     "faker": "^5.5.3",
     "faker-js": "^1.0.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@testomatio/reporter": "latest",
+    "cypress": "^12.17.1",
     "cypress-real-events": "^1.12.0"
   }
 }
