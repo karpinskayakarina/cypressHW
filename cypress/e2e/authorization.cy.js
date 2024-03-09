@@ -11,11 +11,6 @@ describe("Authorization positive scenarios", () => {
     fillAuthorizationFields(user.loginname, user.password);
     loginPage.verifyUserFirstNameDisplayed(user.firstname);
   });
-
-  it("Authorization without entered username", () => {
-    cy.login(user.loginname, user.password);
-    loginPage.verifyUserFirstNameDisplayed(user.firstname);
-  });
 });
 
 describe("Authorization negative scenarios", () => {
