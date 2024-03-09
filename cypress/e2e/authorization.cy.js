@@ -1,14 +1,16 @@
 import user from "../fixtures/user.json";
 import { fillAuthorizationFields } from "../support/helper";
 import LoginPage from "../support/pages/LoginPage";
+import { fillAuthorizationFields } from "../support/helper";
 import { headlessLogin } from "../support/helper";
 
 const loginPage = new LoginPage();
 
 describe("Authorization positive scenarios", () => {
-  it("Authorization", () => {
+  it("Authorization by HTTP", () => {
     headlessLogin(user.loginname, user.password);
-    loginPage.visitLoginPage();
+    cy.visit("/index.php?rt=account/account");
+    cy.log("User first name should be visible");
     loginPage.verifyUserFirstNameDisplayed(user.firstname);
   });
 });
