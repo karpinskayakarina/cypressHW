@@ -1,19 +1,14 @@
 import user from "../fixtures/user.json";
 import { fillAuthorizationFields } from "../support/helper";
 import LoginPage from "../support/pages/LoginPage";
+import { headlessLogin } from "../support/helper";
 
 const loginPage = new LoginPage();
 
 describe("Authorization positive scenarios", () => {
   it("Authorization", () => {
+    headlessLogin(user.loginname, user.password);
     loginPage.visitLoginPage();
-
-    fillAuthorizationFields(user.loginname, user.password);
-    loginPage.verifyUserFirstNameDisplayed(user.firstname);
-  });
-
-  it("Authorization without entered username", () => {
-    cy.login(user.loginname, user.password);
     loginPage.verifyUserFirstNameDisplayed(user.firstname);
   });
 });
